@@ -21,13 +21,33 @@ to:
   * `23:19:12`
 
 ----
-## Installation location ##
+## Installation ##
 
-I install to `/usr/share/i18n/locales/en_KRAYON`, then set the environment
-variable `LC_TIME` to `en_KRAYON`, eg:
+Install the file to `/usr/share/i18n/locales/en_KRAYON`
 
 ```bash
 sudo install -m0644 -oroot -groot usr-share-i18n-locales-en_KRAYON /usr/share/i18n/locales/en_KRAYON
+```
+
+Add it to your `/etc/locale.gen`
+
+```bash
+cat <<EOF |sudo tee -a /etc/locale.gen
+en_KRAYON ISO-8859-1
+en_KRAYON.UTF-8 UTF-8
+EOF
+```
+
+Regenerate your locales
+
+```bash
+sudo locale-gen
+```
+
+Set your environment variable `LC_TIME` to `en_KRAYON`. You can also add this
+to your `.bashrc`, `bash_profile`, `/etc/bash.bashrc`, `/etc/profile` etc
+
+```bash
 export LC_TIME=en_KRAYON
 ```
 
