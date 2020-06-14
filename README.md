@@ -19,8 +19,10 @@ to:
   * `2015-12-01`
   * `23:19:12`
 
+
+
 ----
-## Installation ##
+## Installation - System ##
 
 Install the file to `/usr/share/i18n/locales/en_KRAYON`
 
@@ -43,12 +45,44 @@ Regenerate your locales
 sudo locale-gen
 ```
 
+
+
+----
+## Installation - Local user ##
+
+Can instead store it for local user, and set `PATH_LOCALE`, see:
+
+  * http://lists.freebsd.org/pipermail/freebsd-questions/2015-June/266181.html
+
+
+
+----
+## Enable ##
+
 Set your environment variable `LC_TIME` to `en_KRAYON`. You can also add this
 to your `.bashrc`, `bash_profile`, `/etc/bash.bashrc`, `/etc/profile` etc
 
 ```bash
 export LC_TIME=en_KRAYON
 ```
+
+
+
+----
+## Other settings of use ##
+
+These are other things to add to your `.bashrc` etc to keep you sane:
+
+```bash
+# libc's date format seems to default to "Mth DD  YYYY" / "Mth DD HH:MM"
+# ... this ensures ls -la shows the LOGICAL "YYYY-MM-DD HH:MM"
+export TIME_STYLE='long-iso'
+
+# libc's collating (ls sort order) is mixed, we want all dot files together etc
+export LC_COLLATE='C'
+```
+
+
 
 ----
 [//]: # ( vim: set ts=4 sw=4 et ai si ft=markdown: )
