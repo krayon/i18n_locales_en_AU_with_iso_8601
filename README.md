@@ -3,8 +3,7 @@
 This locale file can be included in your system locales. It merges Australian
 English locale with some more sane date formats.
 
-The time and dates displayed for commands (`ls` etc) will then be in new
-formats.
+The time and dates displayed for various commands will then be in new formats.
 
 Changes date and time formats from:
 
